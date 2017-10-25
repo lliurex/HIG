@@ -1,6 +1,58 @@
-<h1>Principios de diseño</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body><h1>Principios de diseño</h1>
 
-<ul><li>Mantener aplicaciones sencillas para los usuarios (preguntarse si los controles que se van a añadir son necesarios para que el usuario llegue a su cometido)</li><li>Uso en proyectores y monitores.</li><li>Establecer conexion entre otras aplicaciones o centrarse en la funcionalidad de la que se tiene abierta en ese momento.</li><li>Definir Core / Framework donde giran todas las aplicaciones ( Uso de Core.py, framework grafico, framework de funcionalidades , funcionalidades con N4d )</li><li>Mostrar elementos en el momento de su uso</li><li>Hacer que el usuario trabaje lo minimo posible ahorrandole escribir entradas de alguna forma. ( rellenado de elementos de forma predeterminada )</li><li>Organizacion de importancia en la interfaz de arriba-izquierda a abajo-derecha</li><li>Resolucion de errores anticipada ( Que no se puedan realizar errores - componentes que solo se puede escribir digitos, cuando pierde el foco te dice si esta correcto, etc)</li><li>Evitar la interrupcion del funcionamiento </li><li>Uso de humor ( aplicaciones receptivas cuando se usa por primera vez, toques comicos cuando falla)</li></ul>
+<p>En esta seccion se pasaran a explicar aquellos principios que tienen que seguir todas las aplicaciones. Son conceptos generales sin centrarse en ningun campo en concreto, pero que daran un mejor comportamiento en la aplicacion.</p>
+
+<h4>Mantener las aplicaciones lo mas sencillas posibles para el usuario.</h4>
+
+<p>No se trata de ofrecer demostrar que nuestra aplicacion es muy potente porque ofrece muchas funciones. Hay que pensar en los distintos perfiles que tendran nuestros usuarios y en base a eso ofrecer las opciones y los controles de forma que no abrumen al usuario mas de lo necesario. Como consejo puedes preguntarte si los controles que vas a añadir son realmente necesarios para que el usuario llege a utilizar tu aplicacion.</p>
+
+<p>Se debe procurar mostrar los controles solo en el momento en que sea necesario para la aplicacion, de esta forma la aplicacion tendra menos componentes y para el usuario le sera mas facil entender la aplicacion.</p>
+
+<h4>Potencia para quien la necesite</h4>
+
+<p>Una vez ya tenemos claro que la aplicación ha mantenerse sencilla en apariencia se puede plantear el ofrecer funcionalidades para Power Users que puedan explotar mejor la aplicacion. Para ello se pueden utilizar distintos metodos : Botones avanzados, cambio de perfil y de apariencia para usuarios avanzados, menus llenos de opciones...</p>
+
+<h4>Uso en proyectores y segundos monitores</h4>
+
+<p>Muchos de los usuarios de LliureX lo usan con ordenadores conectados a proyectores. En el momento de diseñar esta aplicacion hay que tener en cuenta lo que implica : se forzara a la menor resolucion disponible a no ser que el usuario lo haya cambiado, se puede usar para tener dos ventanas la aplicacion de forma que una se usa para mostrar en el proyector y la otra se usa desde el monitor principal. No son casos tan comunes pero tambien pueden haber usuarios con dos monitores conectados y beneficiarse de esas ventajas / inconvenientes. <strong>Importante</strong> Se debe de tener en cuenta tambien cuando se diseña la aplicacion que el usuario mayormente tendra solo un monitor y que este tendra una resolucion de 1024x768 en la mayoria de los casos. De esta forma debemos recordar que aunque tengamos equipos mas potentes y con mayor resolucion no estamos diseñando aplicaciones para nuestros ordenadores, sino para otros mucho mas modestos.</p>
+
+<h4>Uso e implementacion de tecnologias comunes</h4>
+
+<p>LliureX ya dispone de muchas herramientas y librerias pensadas para el desarrollo de aplicaciones. Prioritariamente se debe de hacer uso de estas, ya que se fomenta la deteccion de errores que no se han producido/contemplado aun en otras interfaces, se evita el caer en casos que no se hayan podido pensar, se aumenta la funcionalidad de dicha libreria con la mejora correspondiente en otras interfaces y se ahorra tiempo en el desarrollo. Para ello se debe utilizar/crear el framework de Lliurex que debe ofrecer:</p>
+
+<ul><li>Un punto de partida para desarrollo de aplicaciones</li><li>Un conjunto de librerias con funciones mas usadas o que tengan cierta dificultad de desarrollo ( cliente de N4D, consulta de informacion del sistema, traduccion, ...)</li></ul>
+
+<h4>Ahorra tiempo al usuario</h4>
+
+<p>Las aplicaciones deben de trabajar para el usuario, ofreciendole a este todo tipo de facilidades para que el pueda realizar su tarea lo mas rapido posible:</p>
+
+<ul><li>Rellena campos con valores ( si tiene que poner el nombre del usuario trata de leerlo del sistema; valores predefinidos que cuando se pincha en los componentes se borra y deja espacio para que el usuario pueda indicar el suyo)</li><li>Implementa atajos de teclados o acciones de confirmacion al presionar Enter ( Si un usuario presiona enter en un campo de texto es porque ya esta conforme con lo que esta visualizando y quiere que se realize la accion) </li></ul>
+
+<h4>Jerarquiza la importancia de la interfaz</h4>
+
+<p>La mayoria de usuarios visualizan una aplicacion como si fuera un libro. De esa forma siempre empiezan de arriba a la izquierda y van bajando con la mirada hasta llegar hasta abajo a la derecha. Esto nos da ciertas pistas de donde deberemos de posicionar los elementos mas importantes de la aplicacion. De esta forma los elementos mas importantes  o que queremos que se les preste mas atencion siempre estaran en las posiciones mas altas, mientras que aquellos elementos que no son tan importantes estan en las posiciones mas bajas.</p>
+
+<h4>Prevencion de errores</h4>
+
+<p>Ninguna aplicacion esta exenta de errores, pero muchas veces los usuarios no acaban de entender como funciona exactamente nuestra aplicacion y pueden producir ciertos errores. Por esta razon se debe de realizar de forma proactiva correcciones / validaciones de errores antes de que puedan pasar a mayores. Por poner un ejemplo: si tenemos un campo que sea un telefono no deberiamos permitir que se puedan escribir letras, o al menos cuando el elemento pierda el foco se deberia marcar como incorrecto. Otro ejemplo seria si se esta creando un usuario, detectar si ese nombre de usuario ya existe antes de que se accione el boton de crear usuario, de esta forma el usuario no tiene que rellenar todos los campos pensando en un valor que ya de entrada es incorrecto.</p>
+
+<h4>El espectaculo ha de continuar</h4>
+
+<p>La aplicacion no deberia interrumpir el funcionamiento de esta de forma innecesaria. Si se ha de informar al usuario, este aviso no deberia de interrumpir el flujo de la aplicacion, a no ser que sea extrictamente necesario. Si lo que se desea es notificar al usuario se debe de usar una barra de notificaciones o las notificaciones del sistema, algo que se pueda consultar dichas notificaciones, pero que no interrumpan el funcionamiento de este.</p>
+
+<h4>Ante todo, un poco de humor</h4>
+
+<p>Un error nunca es agradable para nadie, pero en esos casos es importante relajar el ambiente. Por ello se puede utilizar un poco de humor para relajar el ambiente y hacer menos critico el problema.</p>
+
+<p>Tambien es importante pensar que el usuario cuando llega a nuestra aplicacion se sentira solo ante el peligro, por eso es importante hacer que el usuario se sienta mas acogido por la propia aplicacion. Por esta razon en el caso de aplicaciones que puedan ser mas complejas puede ayudar unos mensajes de bienvenida que le puedan ayudar a utilizar la aplicacion tal como si estubieramos con el usuario. </p>
 
 <h1>Arquitectura de aplicacion</h1>
 
@@ -21,33 +73,97 @@
 
 <h1>Componentes de creacion de interfaces</h1>
 
-<ul><li>Definir su finalidad, su uso,</li><li>Deshabilitar componentes </li><li>Barras de scroll </li><li>Label</li><li>Button<ul><li>Iconos a usar</li><li>Tamaños</li><li>Estilos para botones destructivos o constructivos</li></ul></li><li>Boton de Ayuda</li><li>Toggle Button</li><li>Switches</li><li>Combobox</li><li>Tooltip</li><li>Radiobuttons</li><li>Checkboxes</li><li>Sliders</li><li>Text input ( una sola linea )</li><li>TextArea ( multiples lineas )</li><li>pull-down buttons / </li><li>Selectores<ul><li>Color</li><li>Fecha</li><li>Incrementos</li><li>Estados ( vista en iconos , listas, filtros a aplicar )</li></ul></li><li>Componentes de progreso:<ul><li>Barras de progreso</li><li>Circulos de progreso</li><li>Barra de pasos realizados / Pendientes</li></ul></li><li>Barras de importancia</li><li>Barras de valoracion</li></ul>
+<pre><code>Definir su finalidad, su uso,
+Deshabilitar componentes 
+Barras de scroll
 
-<h1>Distribucion visual en la aplicacion</h1>
+Label
+Button
+    - Iconos a usar
+    - Tamaños
+    - Estilos para botones destructivos o constructivos
+Boton de Ayuda
+Toggle Button
+Switches
+Combobox
+Tooltip
+Radiobuttons
+Checkboxes
+Sliders
+Text input ( una sola linea )
+TextArea ( multiples lineas )
+pull-down buttons / 
+Selectores
+    - Color
+    - Fecha
+    - Incrementos
+    - Estados ( vista en iconos , listas, filtros a aplicar )
+Componentes de progreso:
+    - Barras de progreso
+    - Circulos de progreso
+    - Barra de pasos realizados / Pendientes
+Barras de importancia
+Barras de valoracion</code></pre>
 
-<ul><li>Definir puntos de alineacion donde los elemengos tocaran estos puntos y que estas guias sean las menores posibles.</li><li>Uso de grupos para organizar controles e informacion relacionadas. <ul><li>Elementos con marco o sin marco</li><li>Uso de tabulaciones para definir jerarquias entre elementos</li></ul></li><li>Separacion minima entre componentes relacionados de 6 px e incrementar cuando tengan menos relacion</li><li>Distancia entre etiquetas y entradas de 12 px horizontales</li><li>Distancia entre grupos de componentes de X pixeles</li><li>Distancia entre componentes / grupos con la ventana de X pixeles</li><li>Sangrado de los elementos de X pixeles</li><li>Uso / prohibicion de marcos para delimitar grupos de componentes.</li><li>Justificacion de etiquetas (Preferible justificacion a derecha siempre que no exista sangrado de elementos)</li><li>Jerarquias visuales . Elementos mas fuertes arriba a la izquierda. Elementos menos importantes abajo derecha.</li><li>Preferible el uso de barra de menus frente a otros elementos para acciones para mejorar compatibilidad con otros sistemas (Gnome / KDE / Xfce )</li><li>Definir distintos modelos de interfaces graficas</li></ul>
+<p>Distribucion visual en la aplicacion
+    - Definir puntos de alineacion donde los elemengos tocaran estos puntos y que estas guias sean las menores posibles.
+    - Uso de grupos para organizar controles e informacion relacionadas. 
+        - Elementos con marco o sin marco
+        - Uso de tabulaciones para definir jerarquias entre elementos</p>
 
-<h1>Textos</h1>
+<pre><code>- Separacion minima entre componentes relacionados de 6 px e incrementar cuando tengan menos relacion
+- Distancia entre etiquetas y entradas de 12 px horizontales
+- Distancia entre grupos de componentes de X pixeles
+- Distancia entre componentes / grupos con la ventana de X pixeles
+- Sangrado de los elementos de X pixeles
+- Uso / prohibicion de marcos para delimitar grupos de componentes.
+- Justificacion de etiquetas (Preferible justificacion a derecha siempre que no exista sangrado de elementos)
+- Jerarquias visuales . Elementos mas fuertes arriba a la izquierda. Elementos menos importantes abajo derecha.
+- Preferible el uso de barra de menus frente a otros elementos para acciones para mejorar compatibilidad con otros sistemas (Gnome / KDE / Xfce )
 
-<ul><li>Textos cortos y descriptivos ( aumento hasta del 30 % en otros idiomas )</li><li>Tono neutral ( No usar usted ni tu). Alternativamente usar su.</li><li>Uso de mayusculas:</li><li>Uso de tooltips</li><li>Textos largos</li><li>Usar ... Si la accion va a requerir de una confirmacion del usuario</li></ul>
+- Definir distintos modelos de interfaces graficas</code></pre>
 
-<h1>Tipografia</h1>
+<p>Textos
+    - Textos cortos y descriptivos ( aumento hasta del 30 % en otros idiomas )
+    - Tono neutral ( No usar usted ni tu). Alternativamente usar su.
+    - Uso de mayusculas:
+    - Uso de tooltips
+    - Textos largos
+    - Usar ... Si la accion va a requerir de una confirmacion del usuario
+Tipografia
+    - Tipografia determinada
+    - Tamaños predefinidos o escalas entre los tamaños
+    - Uso de colores en las tipografias
+    - Minimizar la cantidad de variantes
+    - Visualizacion de texto sobre imagenes
+    - Evitar italic
+    - Uso de bold 
+iconos, baners, logos
+    - formato de los iconos ( Definir estructura, colores, margenes, formas, sombras, tamaños, orientacion, perspectiva )
+    - formato de los banners ( Definir estructura, colores, margenes, formas, sombras, tamaños, orientacion, perspectiva )
+    - Iconos en botones junto con texto o solos
+    - Usar solo iconos en casos que se conozcan como convenios
+    - Uso de iconos dependendiendo del contexto (boton de parar junto otros botones multimedia; Botones de flechas al lado de una 
+        lista para conseguir ordenacion ...)
+    - Uso de iconos de Stock sobre iconos personalizados
+    - Iconos monocromo vs Iconos a todo color
+    - Esfuerzo para ilustraciones en svg( iconos, banners, logos, ...)</p>
 
-<ul><li>Tipografia determinada</li><li>Tamaños predefinidos o escalas entre los tamaños</li><li>Uso de colores en las tipografias</li><li>Minimizar la cantidad de variantes</li><li>Visualizacion de texto sobre imagenes</li><li>Evitar italic</li><li>Uso de bold </li></ul>
+<p>paleta de colores
+    - Ofrecer paletas de colores teniendo en cuenta cuales son los tonos y ofrecer alternativas para el uso en distintos rangos de color.</p>
 
-<h1>iconos, baners, logos</h1>
+<p>Soporte de pantallas
+    - Soporte a HiDpi
+    - Resoluciones minimas
+    - Ventanas redimensionables
+    - Aplicaciones pensadas para ocupar la mitad de la pantalla ( Con resoluciones bajas no tiene ningun sentido)</p>
 
-<ul><li>formato de los iconos ( Definir estructura, colores, margenes, formas, sombras, tamaños, orientacion, perspectiva )</li><li>formato de los banners ( Definir estructura, colores, margenes, formas, sombras, tamaños, orientacion, perspectiva )</li><li>Iconos en botones junto con texto o solos</li><li>Usar solo iconos en casos que se conozcan como convenios</li><li>Uso de iconos dependendiendo del contexto (boton de parar junto otros botones multimedia; Botones de flechas al lado de una lista para conseguir ordenacion ...)</li><li>Uso de iconos de Stock sobre iconos personalizados</li><li>Iconos monocromo vs Iconos a todo color</li><li>Esfuerzo para ilustraciones en svg( iconos, banners, logos, ...)</li></ul>
-
-<h1>Paleta de colores</h1>
-
-<ul><li>Ofrecer paletas de colores teniendo en cuenta cuales son los tonos y ofrecer alternativas para el uso en distintos rangos de color.</li></ul>
-
-<h1>Soporte de pantallas</h1>
-
-<ul><li>Soporte a HiDpi</li><li>Resoluciones minimas</li><li>Ventanas redimensionables</li><li>Aplicaciones pensadas para ocupar la mitad de la pantalla ( Con resoluciones bajas no tiene ningun sentido)</li></ul>
-
-<h1>Accesibilidad</h1>
-
-<ul><li>Soporte de las funciones solo desde el teclado ( Al pulsar intro debe de entrar en pantallas de login)</li><li>Navegacion por los componentes de una interfaz mediante tab con una ordenacion logica</li><li>Acceso a botones mediante la tecla Alt + X donde X es una letra subrayada en el componente</li><li>Ctrl + C , Ctrl + V , Ctrl + Z, Ctrl + P</li><li>Los atajos que se pueden usar fácilmente con una sola mano son preferibles para las operaciones habituales. </li><li>Lista de atajos a tener en cuenta:
-    https://developer.gnome.org/hig/stable/keyboard-input.html.es</li></ul>
+<p>Accesibilidad
+    - Soporte de las funciones solo desde el teclado ( Al pulsar intro debe de entrar en pantallas de login)
+    - Navegacion por los componentes de una interfaz mediante tab con una ordenacion logica
+    - Acceso a botones mediante la tecla Alt + X donde X es una letra subrayada en el componente
+    - Ctrl + C , Ctrl + V , Ctrl + Z, Ctrl + P
+    - Los atajos que se pueden usar fácilmente con una sola mano son preferibles para las operaciones habituales. 
+    - Lista de atajos a tener en cuenta:
+        https://developer.gnome.org/hig/stable/keyboard-input.html.es</p></body>
+</html>
