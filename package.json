@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lliurex/HIG#readme",
   "dependencies": {
-    "markdown": "^0.5.0"
+    "markdown": "^0.5.0",
+    "showdown": "^1.8.0"
   }
 }

@@ -5,74 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body{
+            padding: 10px 40px;
+            text-align: justify;
+        }
+    </style>
 </head>
-<body><h1>Principios de diseño</h1>
-
+<body><h1 id="principiosdediseo">Principios de diseño</h1>
 <p>En esta seccion se pasaran a explicar aquellos principios que tienen que seguir todas las aplicaciones. Son conceptos generales sin centrarse en ningun campo en concreto, pero que daran un mejor comportamiento en la aplicacion.</p>
-
-<h4>Mantener las aplicaciones lo mas sencillas posibles para el usuario.</h4>
-
+<h4 id="mantenerlasaplicacioneslomassencillasposiblesparaelusuario">Mantener las aplicaciones lo mas sencillas posibles para el usuario.</h4>
 <p>No se trata de ofrecer demostrar que nuestra aplicacion es muy potente porque ofrece muchas funciones. Hay que pensar en los distintos perfiles que tendran nuestros usuarios y en base a eso ofrecer las opciones y los controles de forma que no abrumen al usuario mas de lo necesario. Como consejo puedes preguntarte si los controles que vas a añadir son realmente necesarios para que el usuario llege a utilizar tu aplicacion.</p>
-
 <p>Se debe procurar mostrar los controles solo en el momento en que sea necesario para la aplicacion, de esta forma la aplicacion tendra menos componentes y para el usuario le sera mas facil entender la aplicacion.</p>
-
-<h4>Potencia para quien la necesite</h4>
-
-<p>Una vez ya tenemos claro que la aplicación ha mantenerse sencilla en apariencia se puede plantear el ofrecer funcionalidades para Power Users que puedan explotar mejor la aplicacion. Para ello se pueden utilizar distintos metodos : Botones avanzados, cambio de perfil y de apariencia para usuarios avanzados, menus llenos de opciones...</p>
-
-<h4>Uso en proyectores y segundos monitores</h4>
-
+<h4 id="potenciaparaquienlanecesite">Potencia para quien la necesite</h4>
+<p>Una vez ya tenemos claro que la aplicación ha mantenerse sencilla en apariencia se puede plantear el ofrecer funcionalidades para Power Users que puedan explotar mejor la aplicacion. Para ello se pueden utilizar distintos metodos : Botones avanzados, cambio de perfil y de apariencia para usuarios avanzados, menus llenos de opciones…</p>
+<h4 id="usoenproyectoresysegundosmonitores">Uso en proyectores y segundos monitores</h4>
 <p>Muchos de los usuarios de LliureX lo usan con ordenadores conectados a proyectores. En el momento de diseñar esta aplicacion hay que tener en cuenta lo que implica : se forzara a la menor resolucion disponible a no ser que el usuario lo haya cambiado, se puede usar para tener dos ventanas la aplicacion de forma que una se usa para mostrar en el proyector y la otra se usa desde el monitor principal. No son casos tan comunes pero tambien pueden haber usuarios con dos monitores conectados y beneficiarse de esas ventajas / inconvenientes. <strong>Importante</strong> Se debe de tener en cuenta tambien cuando se diseña la aplicacion que el usuario mayormente tendra solo un monitor y que este tendra una resolucion de 1024x768 en la mayoria de los casos. De esta forma debemos recordar que aunque tengamos equipos mas potentes y con mayor resolucion no estamos diseñando aplicaciones para nuestros ordenadores, sino para otros mucho mas modestos.</p>
-
-<h4>Uso e implementacion de tecnologias comunes</h4>
-
+<h4 id="usoeimplementaciondetecnologiascomunes">Uso e implementacion de tecnologias comunes</h4>
 <p>LliureX ya dispone de muchas herramientas y librerias pensadas para el desarrollo de aplicaciones. Prioritariamente se debe de hacer uso de estas, ya que se fomenta la deteccion de errores que no se han producido/contemplado aun en otras interfaces, se evita el caer en casos que no se hayan podido pensar, se aumenta la funcionalidad de dicha libreria con la mejora correspondiente en otras interfaces y se ahorra tiempo en el desarrollo. Para ello se debe utilizar/crear el framework de Lliurex que debe ofrecer:</p>
-
-<ul><li>Un punto de partida para desarrollo de aplicaciones</li><li>Un conjunto de librerias con funciones mas usadas o que tengan cierta dificultad de desarrollo ( cliente de N4D, consulta de informacion del sistema, traduccion, ...)</li></ul>
-
-<h4>Ahorra tiempo al usuario</h4>
-
+<ul>
+<li>Un punto de partida para desarrollo de aplicaciones</li>
+<li>Un conjunto de librerias con funciones mas usadas o que tengan cierta dificultad de desarrollo ( cliente de N4D, consulta de informacion del sistema, traduccion, …)</li>
+</ul>
+<h4 id="ahorratiempoalusuario">Ahorra tiempo al usuario</h4>
 <p>Las aplicaciones deben de trabajar para el usuario, ofreciendole a este todo tipo de facilidades para que el pueda realizar su tarea lo mas rapido posible:</p>
-
-<ul><li>Rellena campos con valores ( si tiene que poner el nombre del usuario trata de leerlo del sistema; valores predefinidos que cuando se pincha en los componentes se borra y deja espacio para que el usuario pueda indicar el suyo)</li><li>Implementa atajos de teclados o acciones de confirmacion al presionar Enter ( Si un usuario presiona enter en un campo de texto es porque ya esta conforme con lo que esta visualizando y quiere que se realize la accion) </li></ul>
-
-<h4>Jerarquiza la importancia de la interfaz</h4>
-
+<ul>
+<li>Rellena campos con valores ( si tiene que poner el nombre del usuario trata de leerlo del sistema; valores predefinidos que cuando se pincha en los componentes se borra y deja espacio para que el usuario pueda indicar el suyo)</li>
+<li>Implementa atajos de teclados o acciones de confirmacion al presionar Enter ( Si un usuario presiona enter en un campo de texto es porque ya esta conforme con lo que esta visualizando y quiere que se realize la accion) </li>
+</ul>
+<h4 id="jerarquizalaimportanciadelainterfaz">Jerarquiza la importancia de la interfaz</h4>
 <p>La mayoria de usuarios visualizan una aplicacion como si fuera un libro. De esa forma siempre empiezan de arriba a la izquierda y van bajando con la mirada hasta llegar hasta abajo a la derecha. Esto nos da ciertas pistas de donde deberemos de posicionar los elementos mas importantes de la aplicacion. De esta forma los elementos mas importantes  o que queremos que se les preste mas atencion siempre estaran en las posiciones mas altas, mientras que aquellos elementos que no son tan importantes estan en las posiciones mas bajas.</p>
-
-<h4>Prevencion de errores</h4>
-
+<h4 id="prevenciondeerrores">Prevencion de errores</h4>
 <p>Ninguna aplicacion esta exenta de errores, pero muchas veces los usuarios no acaban de entender como funciona exactamente nuestra aplicacion y pueden producir ciertos errores. Por esta razon se debe de realizar de forma proactiva correcciones / validaciones de errores antes de que puedan pasar a mayores. Por poner un ejemplo: si tenemos un campo que sea un telefono no deberiamos permitir que se puedan escribir letras, o al menos cuando el elemento pierda el foco se deberia marcar como incorrecto. Otro ejemplo seria si se esta creando un usuario, detectar si ese nombre de usuario ya existe antes de que se accione el boton de crear usuario, de esta forma el usuario no tiene que rellenar todos los campos pensando en un valor que ya de entrada es incorrecto.</p>
-
-<h4>El espectaculo ha de continuar</h4>
-
+<h4 id="elespectaculohadecontinuar">El espectaculo ha de continuar</h4>
 <p>La aplicacion no deberia interrumpir el funcionamiento de esta de forma innecesaria. Si se ha de informar al usuario, este aviso no deberia de interrumpir el flujo de la aplicacion, a no ser que sea extrictamente necesario. Si lo que se desea es notificar al usuario se debe de usar una barra de notificaciones o las notificaciones del sistema, algo que se pueda consultar dichas notificaciones, pero que no interrumpan el funcionamiento de este.</p>
-
-<h4>Ante todo, un poco de humor</h4>
-
+<h4 id="antetodounpocodehumor">Ante todo, un poco de humor</h4>
 <p>Un error nunca es agradable para nadie, pero en esos casos es importante relajar el ambiente. Por ello se puede utilizar un poco de humor para relajar el ambiente y hacer menos critico el problema.</p>
-
 <p>Tambien es importante pensar que el usuario cuando llega a nuestra aplicacion se sentira solo ante el peligro, por eso es importante hacer que el usuario se sienta mas acogido por la propia aplicacion. Por esta razon en el caso de aplicaciones que puedan ser mas complejas puede ayudar unos mensajes de bienvenida que le puedan ayudar a utilizar la aplicacion tal como si estubieramos con el usuario. </p>
-
-<h1>Arquitectura de aplicacion</h1>
-
-<ul><li>Ventanas de carga</li><li>Ventanas modales ( Opcion de no volver a mostrar, Icono de identificacion )<ul><li>Alerta </li></ul></li><li>Onboarding</li><li>Configuraciones</li><li>Restauracion de estado de la aplicacion en el momento del cierre.</li><li>Pantallas de identificacion y de seguridad.<ul><li>Pantalla inicial</li><li>Uso de aplicacion sin necesidad de identificacion y peticion cuando se le requiere</li></ul></li><li>Ventana &quot;Acerca de&quot;</li><li>Disposiciones :<ul><li>Columnas </li><li>Paneles superpuestos con overlay translucido</li><li>Vistas partidas https://developer.apple.com/macos/human-interface-guidelines/windows-and-views/split-views/</li><li>Vistas pocos componentes https://developer.apple.com/macos/human-interface-guidelines/windows-and-views/image-views/</li></ul></li></ul>
-
-<h1>Dopamina</h1>
-
-<ul><li>Animaciones</li><li>Transparencias</li><li>Autosalvado</li></ul>
-
-<h1>Definicion de aplicacion:</h1>
-
-<ul><li>Relacion con otras aplicaciones para su funcionamiento</li><li>Requisitos minimos que debe tener ( Botones de ejecucion, ayuda, Nombre, iconos, banners )</li><li>Patron o indicaciones a la hora de nombrar una aplicacion ( Aplicaciones de configuracion, aplicaciones, de inicializacion,
-     menos de X caracteres con el fin de una correcta visualizacion)</li><li>Nombres relacionados con la funcionalidad, que sean faciles de entender, descriptivos.</li></ul>
-
-<h1>Patrones de Controles:</h1>
-
-<ul><li>Menu contextual </li><li>Menu de barra de aplicaciones</li><li>Sidebars</li><li>Barras  de aplicacion</li><li>Barras de notificacion</li><li>Paneles de configuración</li><li>Intercambiadores de seccion ( tabs, buttons switch, slides )</li><li>Wizards</li><li>Buscadores</li><li>Componentes de listados (definir modo de seleccion, botones para la gestion de elementos - ordenacion, creacion, eliminacion -)<ul><li>listados simples ( tablas )</li><li>listados visuales ( listado de imagenes, de iconos de carpetas )</li></ul></li><li>Ventanas de dialogos<ul><li>Yes / No </li><li>Informacion </li><li>Seleccion de ficheros / Carpetas </li><li>Guardado de ficheros / Carpetas </li></ul></li><li>Ventanas de Descargas</li><li><p>Ayuda para los controles o para la aplicacion</p><ul><li><p>Boton de ayuda</p></li></ul></li><li><p>Controles de gestion de tiempo.</p></li><li>Drag and Drop<ul><li>Soporte</li><li>añadir informacion durante el drag and drop</li></ul></li></ul>
-
-<h1>Componentes de creacion de interfaces</h1>
-
+<h1 id="arquitecturadeaplicacion">Arquitectura de aplicacion</h1>
+<ul>
+<li>Ventanas de carga</li>
+<li>Ventanas modales ( Opcion de no volver a mostrar, Icono de identificacion )<ul>
+<li>Alerta </li></ul></li>
+<li>Onboarding</li>
+<li>Configuraciones</li>
+<li>Restauracion de estado de la aplicacion en el momento del cierre.</li>
+<li>Pantallas de identificacion y de seguridad.<ul>
+<li>Pantalla inicial</li>
+<li>Uso de aplicacion sin necesidad de identificacion y peticion cuando se le requiere</li></ul></li>
+<li>Ventana "Acerca de"</li>
+<li>Disposiciones :<ul>
+<li>Columnas </li>
+<li>Paneles superpuestos con overlay translucido</li>
+<li>Vistas partidas https://developer.apple.com/macos/human-interface-guidelines/windows-and-views/split-views/</li>
+<li>Vistas pocos componentes https://developer.apple.com/macos/human-interface-guidelines/windows-and-views/image-views/</li></ul></li>
+</ul>
+<h1 id="dopamina">Dopamina</h1>
+<ul>
+<li>Animaciones</li>
+<li>Transparencias</li>
+<li>Autosalvado</li>
+</ul>
+<h1 id="definiciondeaplicacion">Definicion de aplicacion:</h1>
+<ul>
+<li>Relacion con otras aplicaciones para su funcionamiento</li>
+<li>Requisitos minimos que debe tener ( Botones de ejecucion, ayuda, Nombre, iconos, banners )</li>
+<li>Patron o indicaciones a la hora de nombrar una aplicacion ( Aplicaciones de configuracion, aplicaciones, de inicializacion,
+     menos de X caracteres con el fin de una correcta visualizacion)</li>
+<li>Nombres relacionados con la funcionalidad, que sean faciles de entender, descriptivos.</li>
+</ul>
+<h1 id="patronesdecontroles">Patrones de Controles:</h1>
+<ul>
+<li><p>Menu contextual </p></li>
+<li><p>Menu de barra de aplicaciones</p></li>
+<li><p>Sidebars</p></li>
+<li><p>Barras  de aplicacion</p></li>
+<li><p>Barras de notificacion</p></li>
+<li><p>Paneles de configuración</p></li>
+<li><p>Intercambiadores de seccion ( tabs, buttons switch, slides )</p></li>
+<li><p>Wizards</p></li>
+<li><p>Buscadores</p></li>
+<li><p>Componentes de listados (definir modo de seleccion, botones para la gestion de elementos - ordenacion, creacion, eliminacion -)</p>
+<ul>
+<li>listados simples ( tablas )</li>
+<li>listados visuales ( listado de imagenes, de iconos de carpetas )</li></ul></li>
+<li><p>Ventanas de dialogos</p>
+<ul>
+<li>Yes / No </li>
+<li>Informacion </li>
+<li>Seleccion de ficheros / Carpetas </li>
+<li>Guardado de ficheros / Carpetas </li></ul></li>
+<li><p>Ventanas de Descargas</p></li>
+<li><p>Ayuda para los controles o para la aplicacion</p>
+<ul>
+<li>Boton de ayuda</li></ul></li>
+<li><p>Controles de gestion de tiempo.</p></li>
+<li><p>Drag and Drop</p>
+<ul>
+<li>Soporte</li>
+<li>añadir informacion durante el drag and drop</li></ul></li>
+</ul>
+<h1 id="componentesdecreaciondeinterfaces">Componentes de creacion de interfaces</h1>
 <pre><code>Definir su finalidad, su uso,
 Deshabilitar componentes 
 Barras de scroll
@@ -103,14 +136,13 @@ Componentes de progreso:
     - Circulos de progreso
     - Barra de pasos realizados / Pendientes
 Barras de importancia
-Barras de valoracion</code></pre>
-
+Barras de valoracion
+</code></pre>
 <p>Distribucion visual en la aplicacion
     - Definir puntos de alineacion donde los elemengos tocaran estos puntos y que estas guias sean las menores posibles.
     - Uso de grupos para organizar controles e informacion relacionadas. 
         - Elementos con marco o sin marco
         - Uso de tabulaciones para definir jerarquias entre elementos</p>
-
 <pre><code>- Separacion minima entre componentes relacionados de 6 px e incrementar cuando tengan menos relacion
 - Distancia entre etiquetas y entradas de 12 px horizontales
 - Distancia entre grupos de componentes de X pixeles
@@ -121,15 +153,15 @@ Barras de valoracion</code></pre>
 - Jerarquias visuales . Elementos mas fuertes arriba a la izquierda. Elementos menos importantes abajo derecha.
 - Preferible el uso de barra de menus frente a otros elementos para acciones para mejorar compatibilidad con otros sistemas (Gnome / KDE / Xfce )
 
-- Definir distintos modelos de interfaces graficas</code></pre>
-
+- Definir distintos modelos de interfaces graficas
+</code></pre>
 <p>Textos
     - Textos cortos y descriptivos ( aumento hasta del 30 % en otros idiomas )
     - Tono neutral ( No usar usted ni tu). Alternativamente usar su.
     - Uso de mayusculas:
     - Uso de tooltips
     - Textos largos
-    - Usar ... Si la accion va a requerir de una confirmacion del usuario
+    - Usar … Si la accion va a requerir de una confirmacion del usuario
 Tipografia
     - Tipografia determinada
     - Tamaños predefinidos o escalas entre los tamaños
@@ -144,20 +176,17 @@ iconos, baners, logos
     - Iconos en botones junto con texto o solos
     - Usar solo iconos en casos que se conozcan como convenios
     - Uso de iconos dependendiendo del contexto (boton de parar junto otros botones multimedia; Botones de flechas al lado de una 
-        lista para conseguir ordenacion ...)
+        lista para conseguir ordenacion …)
     - Uso de iconos de Stock sobre iconos personalizados
     - Iconos monocromo vs Iconos a todo color
-    - Esfuerzo para ilustraciones en svg( iconos, banners, logos, ...)</p>
-
+    - Esfuerzo para ilustraciones en svg( iconos, banners, logos, …)</p>
 <p>paleta de colores
     - Ofrecer paletas de colores teniendo en cuenta cuales son los tonos y ofrecer alternativas para el uso en distintos rangos de color.</p>
-
 <p>Soporte de pantallas
     - Soporte a HiDpi
     - Resoluciones minimas
     - Ventanas redimensionables
     - Aplicaciones pensadas para ocupar la mitad de la pantalla ( Con resoluciones bajas no tiene ningun sentido)</p>
-
 <p>Accesibilidad
     - Soporte de las funciones solo desde el teclado ( Al pulsar intro debe de entrar en pantallas de login)
     - Navegacion por los componentes de una interfaz mediante tab con una ordenacion logica
