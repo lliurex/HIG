@@ -35,17 +35,57 @@ Un error nunca es agradable para nadie, pero en esos casos es importante relajar
 
 Tambien es importante pensar que el usuario cuando llega a nuestra aplicacion se sentira solo ante el peligro, por eso es importante hacer que el usuario se sienta mas acogido por la propia aplicacion. Por esta razon en el caso de aplicaciones que puedan ser mas complejas puede ayudar unos mensajes de bienvenida que le puedan ayudar a utilizar la aplicacion tal como si estubieramos con el usuario. 
 
+# Definicion de aplicacion
+Antes de empezar, hemos de pensar que estamos realizando una aplicación ( tanto grafica como por consola ) para solucionar un problema existente o para mejorar la solucion actual. Dicho esto, las aplicaciones que se realicen tiene que mejorar de una forma u otra la situacion actual de una forma objetiva, por esto es bueno que se comparta la idea y/o el diseño con otras personas para que puedan darte su punto de vista y poder ver aquellos problemas que inicialmente no has podido ver, detectar problemas de comprension de la aplicacion o incluso ver si lo que se esta desarrollando no le es de utilidad para nadie.
+
+#### Captacion de requisitos o esbozo inicial
+Esta es la tarea mas importante que se ha de realizar ( al menos a corto plazo ). Todos los implicados en el desarrollo del producto deben tener claro cuales son los objetivos que se quieren conseguir con el desarrollo de la aplicacion. Esto no quiere decir para nada que la aplicacion no pueda mutar y transformarse en otra cosa, pero es importante detectar el objetivo comun a solucionar, el resultado que se espera y los medios que se usaran. *En este punto se deberian de obtener los objetivos principales y realizar algun esbozo tanto a nivel grafico como a nivel logico de como se comportara la aplicacion*.
+
+Pero como se ha citado antes, esto no sera un guion sobre el cual no se podra modificar el desarrollo, ya que pueden surgir nuevas necesidades, o comprobar que el desarrollo que se esta siguiendo no terminara bien ( de nada vale seguir desarrollando una apliacion que vemos que nadie va a usar). Esto no quiere decir que se haya desarrollado mal por mal entendimiento del problema, sino porque ha cambiado la situacion.
+
+#### Relacion con otras aplicaciones para su funcionamiento
+No todas las aplicaciones se comportan de forma totalmente autonoma. Muchas de estas aplicaciones estan relacionadas entre ellas: unas pueden usar los recursos que otra a generado; otras pueden estar generando resultados comunes y deberian de acordar un formato comun para mejorar el entendimiento y la compatibilidad; Otras pueden ser submodulos de otras aplicaciones.
+
+El objetivo de este punto es observar el ecosistema que tiene LliureX. Esto limitara muchas veces las tecnologias que se van a utilizar, como se van a ofrecer los resultados o incluso la apariencia que deberia tener la propia aplicacion.
+
+Por ejemplo si el Llum ha de realizar una exportacion de usuarios, tal vez podria ser compatible con el formato que usa el PMB para importar usuarios. O si vamos a realizar un script que se encarge de crear sites en apache se puede realizar por N4D para que cualquier otra aplicacion pueda beneficiarse de esta funcion y aumentar las facilidades que ofrezca la aplicacion.
+
+#### Requisitos minimos a cumplir
+Aqui se cogeria el resultado que se haya obtenido con la captacion de requisitos y se le daria mas forma para que las aplicaciones que se realicen tengan los elementos basicos de una forma comun.
+
+##### Aplicaciones de linea de comandos
+ * Comando help en el cual se explique todo lo que ofrece. 
+ * Bash-completion para que sea mas facil de utilizar
+
+##### Aplicaciones graficas
+ * Deben de disponer de un About, desde el cual el usuario pueda ver la version de la aplicacion, datos de contacto para notificar errores, arquitectura donde se esta ejecutando, licencia que tiene la aplicacion, 
+ * Disponer de algun tipo de ayuda para conocer el flujo de la aplicacion o los elementos que la forman. Esto puede ser o bien enlaces a una wiki, o una ayuda offline en formato redactado.
+
+#### Nombrando nuestra aplicacion
+El nombre de la aplicacion en LliureX siempre ha sido un momento de disputas. Todo el mundo quiere que la aplicacion se llame como el quiere, pero lo que debemos recordar que es solo un nombre. Obviamente no debemos llamar nuestra aplicacion de una forma confusa ( usar nombres que todo el mundo reconoce para realizar una aplicacion que no tiene ninguna funcionalidad relacionada con esta ) o aplicaciones que son impronunciables. 
+
+Algunos recomiendan a la hora de establecer nombres para las aplicaciones crear un patron para organizar tipos de aplicaciones . Por ejemplo hace tiempo las aplicaciones de configuracion empezaban con llxcfg mientras que el resto de  aplicaciones empezaban con lliurex.
+
+Otras recomendaciones son crear nombres totalmente agnosticos del entorno. De esta forma el proyecto no esta ligado a ninguna estructura ni organizacion y puede crecer sin ataduras.
+
+Algo que siempre se suele buscar es usar nombres relacionados con las tareas que van a desempeñar, que sean faciles de entender y descriptivos. No deberian ser nombres demasiado largos para que se pueda mostrar de forma correcta en los menus.
+
+Estos son algunos ejemplos de aplicaciones
+ * *MrPDI* : Aplicacion relacionada con las Pizarras Digitales Interactivas
+ * *Zero-server-wizard* :  Wizard relacionado con el servidor
+
 # Arquitectura de aplicacion
+ * Disponer siempre que sea posible de una version en CLI para facilitar la administracion remota o scriptable.
  * Ventanas de carga
- * Ventanas modales ( Opcion de no volver a mostrar, Icono de identificacion )
-     * Alerta 
- * Onboarding
- * Configuraciones
- * Restauracion de estado de la aplicacion en el momento del cierre.
  * Pantallas de identificacion y de seguridad.
      * Pantalla inicial
      * Uso de aplicacion sin necesidad de identificacion y peticion cuando se le requiere
  * Ventana "Acerca de"
+ * Configuraciones
+ * Onboarding
+ * Ventanas modales ( Opcion de no volver a mostrar, Icono de identificacion )
+     * Alerta 
+ * Restauracion de estado de la aplicacion en el momento del cierre.
  * Disposiciones :
      * Columnas 
      * Paneles superpuestos con overlay translucido
@@ -58,12 +98,6 @@ Tambien es importante pensar que el usuario cuando llega a nuestra aplicacion se
 * Transparencias
 * Autosalvado
 
-# Definicion de aplicacion:
- * Relacion con otras aplicaciones para su funcionamiento
- * Requisitos minimos que debe tener ( Botones de ejecucion, ayuda, Nombre, iconos, banners )
- * Patron o indicaciones a la hora de nombrar una aplicacion ( Aplicaciones de configuracion, aplicaciones, de inicializacion,
-         menos de X caracteres con el fin de una correcta visualizacion)
- * Nombres relacionados con la funcionalidad, que sean faciles de entender, descriptivos.
 
 # Patrones de Controles:
  * Menu contextual 
