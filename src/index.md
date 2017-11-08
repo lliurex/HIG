@@ -82,12 +82,35 @@ Tambien es importante pensar que el usuario cuando llega a nuestra aplicacion se
 Cuando se esta desarrollando una aplicacion grafica no se suele tener en mente el concepto de poder realizar todas las funciones desde la linea de comandos. El disponer de una linea de comandos suele beneficiar a la hora de poder realizar scripts que hagan ciertas tareas que hace la aplicacion, o incluso poder ejecutar ciertas funciones desde un entorno que no se disponga de X ( el caso de administracion remota mediante ssh o el administracion del aula con el clusterssh)
 
 Por esta razon a la hora de estar diseñando la aplicacion se ha de tener en cuenta la tarea de realizar algo accesible desde la linea de comandos.
+
 #### Ventanas de carga
-No suele ser comun entre las aplicaciones desarrolladas en LliureX disponer de una ventana de carga. Esto es debido a que muchas de las aplicaciones que se crean suelen ser bajo demanda ( cuando necesitan algun recurso lo piden en ese momento y no preparan todo un entorno antes de la ejecucion). No obtante si que hay ciertas aplicaciones que requieren de una primera fase de captacion de requisitos. 
- * Pantallas de identificacion y de seguridad.
-     * Pantalla inicial
-     * Uso de aplicacion sin necesidad de identificacion y peticion cuando se le requiere
- * Ventana "Acerca de"
+
+No suele ser comun entre las aplicaciones desarrolladas en LliureX disponer de una ventana de carga. Esto es debido a que muchas de las aplicaciones que se crean suelen ser bajo demanda ( cuando necesitan algun recurso lo piden en ese momento y no preparan todo un entorno antes de la ejecucion). No obtante si que hay ciertas aplicaciones que requieren de una primera fase de captacion de requisitos.
+
+Por ello la ventana de carga de una aplicacion deberia de mostrar un logo de la aplicacion que está lanzando en ese momento y los pasos que se estan ejecutando. Se deberia de incluir tambien algun elemento que el usuario pueda usar para detectar que la aplicacion no se ha colgado y que esta trabajando en ser lanzada. Para este fin se puede utilizar una barra de progeso, o cualquier elemento que denote que la aplicacion no esta colgada y sigue en marcha.
+
+#### Pantalla de identificacion y de seguridad
+Un elemento muy importante en el desarrollo de aplicaciones graficas en LliureX es la parte de la identificación. Mediante esta identificacion podemos validar que somos quienes decimos ser mediante un password o mediante un token que hayamos obtenido anteriormente.
+
+Con vistas al futuro de las aplicaciones en Wayland y la perdida de gksu y demas elementos para ganar privilegios se ha decidido usar N4D como metodo para realizar funcionalidades que requieran de privilegios. Para ello todas aquellas funciones que no pueda realizar el usuario de una forma que unix se lo permita, deberan ser implementadas en N4D y llamadas desde la aplicacion mediante xmlrpc. Esta alternativa se posiciona ante D-Bus debido a que D-Bus no ofrece una interfaz por red al mismo nivel que la ofrece N4D; y debido a que nuestra piedra angular es el modelo de aula es natural que todas las funcionalidades que se desarrollan nos interese ofrecerlas por red.
+
+Esto implica que a diferencia de otras aplicaciones, se requerira la identificacion del usuario nada mas lanzar la aplicación. Esto no implica que se deba lanzar una pantalla de login, sino que se debera identificar al usuario al inicio de la aplicacion.
+
+Ademas en vistas de unificacion de interfaces graficas se ha desarrollado un componente que permite una ventana de identificacion personalizable y que ofreceran  coherencia entre las distintas aplicaciones que se desarrollen. Dicho componente es [n4dGtkLoginComponent](https://github.com/edupals/n4dGtkLoginComponent). En caso de ser necesario realizar una ventana de login para otro lenguaje ( inicialmente el componente esta desarrollado para python ) se deberia de añadir en el mismo repositorio y deberia seguir el mismo patron de comportamiento. De esta forma si en un futuro se decidiese modificar el funcionamiento, el resto de lenguajes deberia de hacer la adaptacion correspondiente para mantener la uniformidad.
+
+#### Seccion Acerca de
+La seccion "Acerca de" es un apartado que no se debe descuidar, ya que es una puerta de entrada para que el usuario pueda conocer datos sobre la aplicación de interes general. 
+
+En esta pantalla se deberia de indicar :
+ * Version de la aplicación ( para el usuario no es intuitivo buscar la version en la terminal)
+ * Arquitectura de la aplicacion
+ * Datos de los autores
+ * Datos de contacto para notificar bugs, peticiones, etc.
+ * Donde obtener ayuda sobre la aplicacion.
+ * Url del proyecto
+
+#### Configuraciones
+
  * Configuraciones
  * Onboarding
  * Ventanas modales ( Opcion de no volver a mostrar, Icono de identificacion )
