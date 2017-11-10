@@ -98,6 +98,8 @@ Esto implica que a diferencia de otras aplicaciones, se requerira la identificac
 
 Ademas en vistas de unificacion de interfaces graficas se ha desarrollado un componente que permite una ventana de identificacion personalizable y que ofreceran  coherencia entre las distintas aplicaciones que se desarrollen. Dicho componente es [n4dGtkLoginComponent](https://github.com/edupals/n4dGtkLoginComponent). En caso de ser necesario realizar una ventana de login para otro lenguaje ( inicialmente el componente esta desarrollado para python ) se deberia de añadir en el mismo repositorio y deberia seguir el mismo patron de comportamiento. De esta forma si en un futuro se decidiese modificar el funcionamiento, el resto de lenguajes deberia de hacer la adaptacion correspondiente para mantener la uniformidad.
 
+![login example](images/login.png)
+
 #### Seccion Acerca de
 La seccion "Acerca de" es un apartado que no se debe descuidar, ya que es una puerta de entrada para que el usuario pueda conocer datos sobre la aplicación de interes general. 
 
